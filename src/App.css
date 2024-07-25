@@ -1,38 +1,123 @@
-.App {
+body {
+  font-family: 'Verdana', sans-serif;
+  background-image: url('background3.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.start-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.timer {
+  font-size: 2rem;
+}
+
+.score-display {
+  font-size: 2rem;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 70px);
+  gap: 5px;
+  margin: 0 auto;
+}
+
+.grid-row {
+  display: contents;
+}
+
+.tile-button {
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  border: 2px solid #ebb9b9;
+  border-radius: 10px;
+  visibility: hidden;
+  position: relative;
+}
+
+.tile-button.selected {
+  background-color: rgb(20, 191, 225); 
+  border-color: rgb(16, 16, 16);
+}
+
+.tile-button:visible {
+  visibility: visible;
+  background-color: #fff;
+  border: 2px solid #ccc;
+}
+
+.tile-button.fadeOut {
+  animation: fadeOut 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    opacity: 0.75;
   }
+  50% {
+    opacity: 0.50;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.game-over {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.action-button {
+  background-color: #06f0d5;
+  color: rgb(5, 5, 5);
+  border: none;
+  padding: 15px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #10676a;
 }
